@@ -5,6 +5,7 @@ test('has title', async ({ page }) => {
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Playwright/);
+  await page.locator('Text="TypeScript"').click();
 });
 
 test('get started link', async ({ page }) => {
@@ -15,4 +16,7 @@ test('get started link', async ({ page }) => {
 
   // Expects page to have a heading with the name of Installation.
   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await page.locator("//a[contains(text(),'to install']").screenshot({path: 'screenshot.png'});
+  await page.screenshot({path: 'screenshot.png', fullPage: true});
+  await page.locator("//a[contains(text(),'to install')]").click();
 });
